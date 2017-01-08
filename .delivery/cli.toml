@@ -1,7 +1,0 @@
-api_protocol = "https"
-enterprise = "default"
-git_port = "8989"
-organization = "myorg"
-pipeline = "master"
-server = "test-bwjnavoadsiq2jkd.us-east-1.opsworks-cm.io"
-user = "admin"
