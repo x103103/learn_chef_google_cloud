@@ -1,19 +1,31 @@
 ---
 driver:
-  name: vagrant
+  name: gce
+  project: learn-chef-x103103
+  zone: asia-northeast1-c
+  email: x103103@gmail.com
+  tags:
+    - test-kitchen
+  service_account_scopes:
+    - devstorage.read_write
+    - userinfo.email
 
 provisioner:
   name: chef_zero
-  # You may wish to disable always updating cookbooks in CI or other testing environments.
-  # For example:
-  #   always_update_cookbooks: <%= !ENV['CI'] %>
-  always_update_cookbooks: false
 
 verifier:
   name: inspec
 
+transport:
+  username: user
+  ssh_key: 
+    - ~/.ssh/google_compute_engine
+
 platforms:
   - name: ubuntu-14.04
+    driver:
+      image_project: ubuntu-os-cloud
+      image_family: ubuntu-1404-lts
 
 suites:
   - name: default
